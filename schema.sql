@@ -10,13 +10,17 @@ CREATE TABLE `articles` (
   `article_author_id` int(11) NOT NULL,
   `article_content` mediumtext NOT NULL,
   `article_published_date` datetime NOT NULL,
-  `article_category_id` int(11) NOT NULL
+  `article_category_id` int(11) NOT NULL,
+  `article_thumbnail_url` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 CREATE TABLE `categories` (
   `category_id` int(11) NOT NULL,
   `category_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
@@ -45,8 +49,10 @@ ALTER TABLE `users`
 ALTER TABLE `articles`
   MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT;
 
+
 ALTER TABLE `categories`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT;
+
 
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
@@ -55,6 +61,6 @@ ALTER TABLE `users`
 ALTER TABLE `articles`
   ADD CONSTRAINT `articles_ibfk_1` FOREIGN KEY (`article_author_id`) REFERENCES `users` (`user_id`),
   ADD CONSTRAINT `articles_ibfk_2` FOREIGN KEY (`article_category_id`) REFERENCES `categories` (`category_id`);
-  
 COMMIT;
+
 
