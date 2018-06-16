@@ -35,9 +35,9 @@ This exercise is found at [jsonplaceholder.py](https://github.com/baldegg/gb-hom
 
 This exercise is found at [permutations.py](https://github.com/baldegg/gb-homework/blob/master/permutations.py).  A sample infile is found at [permies.txt](https://github.com/baldegg/gb-homework/blob/master/permies.txt).  Command line usage is " python permutations.py filename.txt ".
 
-The program loads a given text file line by line into a list of strings to be permuted.  The permutation function is called on each of the strings and is carried out recursively.  This process is explained in detail in the comments in the python file.
+The program loads a given text file line by line into a list of strings to be permuted.  The permutation function is called on each of the strings and iterates letter by letter, swapping letters and calling itself recursively until the end of the string is reached.  This process is explained in detail in the comments in the python file.
 
-In permutaitons, the order of letters is considered important, even if they are the same letter, so the program will always return n! permutations where n is the length of the string.  
+In permutations, the order of letters is considered important, even if they are the same letter, so the program will always return n! permutations where n is the length of the string.  Because of this, I believe the theoritical complexity is somewhere on the order of O(n! * n log n ) since we are also presorting the string using python's sorted method, which runs in O(n log n).  Since we are making a lot of recursive calls in a language not especially performance-oriented, actual runtime performance is a lot worse than theoretical.  From rough tests, this implementation seems to complete in around the same timeframe as itertool's.  On my system, both have trouble once inputs exceed 10 characters.  If we needed to increase performance or process larger strings, I would consider porting the permute function to higher performance a language like C or trying to figure out a purely iterative way to produce the permutations.
 
 
 
