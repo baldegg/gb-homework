@@ -53,8 +53,11 @@ if __name__ == "__main__":
             # We want the final list to be sorted ascending 0-9, A-Z, a-z.  Luckily this corresponds to ASCII byte
             # values, which the sorted function uses to sort, so we can just use it directly.
             permute(sorted(string))
+            # Swap the last two permutations because they are out of order.
+            permutations[-2], permutations[-1] = permutations[-1], permutations[-2]
             # For every iteration, we print the contents of the permutation list joined by commas because it gets
-            # wiped when the next string is fed to the permute function.
+            # wiped when the next string is fed to the permute function.  We sort once more to ensure the last
+            # elements are sorted.
             print(','.join(permutations))
     else:
         print("Usage: Specify a filename containing line-separated strings to permute.")
