@@ -22,7 +22,7 @@ def permute(string, start=0):
     chars = list(string)
 
     # If we are starting from the beginning (ie not being called by recursion), re-initialize our array of permutations
-    # so that we don't included permutation sets of previous strings.
+    # so that we don't include permutation sets of previous strings.
     if start == 0:
         permutations.clear()
         print(chars)
@@ -53,9 +53,11 @@ def permute(string, start=0):
 
 
 if __name__ == "__main__":
+    # Checks that we specify filename and attempts to load it, otherwise reminds of usage.
     if len(sys.argv) == 2:
         infile = sys.argv[1]
         strings = loadFile(infile)
+        # Prints output of permute function on each line of file.
         for string in strings:
             print(permute(string))
     else:
