@@ -34,12 +34,12 @@ ALTER TABLE `articles`
   ADD KEY `article_category_id` (`article_category_id`);
 
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`category_id`),
-  ADD UNIQUE KEY `FKCat` (`category_id`);
+  ADD PRIMARY KEY (`category_id`);
+
 
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`) USING BTREE,
-  ADD UNIQUE KEY `user_name` (`user_name`) USING BTREE;
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `user_name` (`user_name`);
 
 
 ALTER TABLE `articles`
