@@ -46,9 +46,8 @@ def permute(string, start=0):
 
     # We want the permutations to be a comma separated string, not a list, so we join them with commas.
     # They should be sorted 1-9, A-Z, a-z.  Luckily, by default python's sorted function uses ASCII byte values, which
-    # follow this same format, so we can use it as is.  We also assume that we want a list of permutations without
-    # duplicates, so we first convert the list to a set, which removes duplicates.
-    comma_perms = ','.join(sorted(set(permutations)))
+    # follow this same format, so we can use it as is.
+    comma_perms = ','.join(sorted(permutations))
     return comma_perms
 
 
