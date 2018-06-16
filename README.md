@@ -24,7 +24,7 @@ The *users* table would most likely actually be handled by the web framework (ie
 
 This exercise is found at [jsonplaceholder.py](https://github.com/baldegg/gb-homework/blob/master/jsonplaceholder.py).  
 
-1. **GET** - Simply performing a get request on the url (https://jsonplaceholder.typicode.com/todos/) returns a list of 200 TODOs.  As discussed in the comments, we assume this to be a list of the newest 200 TODOs, even though id numbers aren't usually reverse-chronological.  If we assumed otherwise, we would need some way of finding the most recent todo, hopefully through an API endpoint, but in the worst case we could brute force it by iterating through the list and counting backwards by 200.
+1. **GET** - Simply performing a get request on the url (https://jsonplaceholder.typicode.com/todos/) returns a list of 200 TODOs.  As discussed in the comments, we assume this to be a list of the newest 200 TODOs, even though id numbers aren't usually reverse-chronological.  If we assumed otherwise, we would need some way of finding the most recent todo, hopefully through an API endpoint, but in the worst case we could brute force it by iterating to the end of the list and counting backwards by 200.
 
 2. **POST** - We send a request of method POST to the API containing a header specifying our content type and a body of JSON.  We know that the server accepts the POST because we get a response back containing the information we posted along with the id number of the new TODO.
 
