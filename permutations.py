@@ -14,10 +14,10 @@ def loadFile(file):
         exit(-1)
 
 
-"""Accepts a single string and appends to permutations list all unique permutations.  
+"""Accepts a list of chars and appends to permutations list all unique permutations.  
 By default, starts iterating at the start of string; start value is only changed when the function is called
 recursively."""
-def permute(string, start=0):
+def permute(chars, start=0):
     # If we are starting from the beginning (ie not being called by recursion), re-initialize our array of permutations
     # so that we don't include permutation sets of previous strings.
     if start == 0:
@@ -25,20 +25,20 @@ def permute(string, start=0):
 
     # If we are starting at the end of the string, this means we have reached the bottom of a recursion branch.
     # Therefore, we have completed one of our permutations and add it to our list.
-    if start == len(string):
-        permutations.append(''.join(string))
+    if start == len(chars):
+        permutations.append(''.join(chars))
 
     # Otherwise, iterate through the string, swapping characters at starting point and iteration counter.
     else:
-        for i in range(start, len(string)):
-            string[start], string[i] = string[i], string[start]
+        for i in range(start, len(chars)):
+            chars[start], chars[i] = chars[i], chars[start]
             # Recursively call the permutation function on the mutated string starting at one place to the right
             # of the current loop. In this manner, every character is swapped with every other character as the start
             # counter approaches the end of the string.
-            permute(string, start + 1)
+            permute(chars, start + 1)
             # We then swap the character back so we can continue iterating through the unmutated string once
             # the recursion calls complete.
-            string[start], string[i] = string[i], string[start]
+            chars[start], chars[i] = chars[i], chars[start]
 
 
 if __name__ == "__main__":
@@ -52,7 +52,7 @@ if __name__ == "__main__":
             # less expensive to sort a single string than a possibly huge list of permutations.
             # We want the final list to be sorted ascending 0-9, A-Z, a-z.  Luckily this corresponds to ASCII byte
             # values, which the sorted function uses to sort, so we can just use it directly.
-            # We presort the string so the list of permutations are more in order.
+            # We presort the string to convert it into a list of chars and reduce sorting time in the final sort.
             permute(sorted(string))
             # For every iteration, we print the contents of the permutation list joined by commas because it gets
             # wiped when the next string is fed to the permute function.  We sort once more to ensure the last
