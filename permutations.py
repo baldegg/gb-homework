@@ -48,8 +48,6 @@ if __name__ == "__main__":
         strings = loadFile(infile)
         # Runs permute on output of permute function on each line of file.
         for string in strings:
-            # We use python's sorted function on each string before sending it to the permute function because it is
-            # less expensive to sort a single string than a possibly huge list of permutations.
             # We want the final list to be sorted ascending 0-9, A-Z, a-z.  Luckily this corresponds to ASCII byte
             # values, which the sorted function uses to sort, so we can just use it directly.
             # We presort the string to convert it into a list of chars and reduce sorting time in the final sort.
